@@ -130,7 +130,7 @@
         },
         "source": {
           "@type": "string",
-          "@value": "rule \"Parse nginx timestamp\"\nwhen\nhas_field(\"nginx_timestamp\")\nthen\n// Rewrite timestamp field from parsed field nginx_timestamp\nlet timestamp = parse_date(to_string($message.nginx_timestamp), \"yyyy-MM-dd'T'HH:mm:ssZZ\");\nset_field(\"timestamp\", timestamp);\n// Remove fields that are no longer needed.\nremove_field(\"nginx_timestamp\");\nend"
+          "@value": "rule \"Parse nginx timestamp\"\nwhen\nhas_field(\"nginx_timestamp\")\nthen\n// Rewrite timestamp field from parsed field nginx_timestamp\nlet timestamp = parse_date(to_string($message.nginx_timestamp), \"yyyy-MM-dd'T'HH:mm:ssZ\");\nset_field(\"timestamp\", timestamp);\n// Remove fields that are no longer needed.\nremove_field(\"nginx_timestamp\");\nend"
         }
       },
       "constraints": [
